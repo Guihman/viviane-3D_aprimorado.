@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Vivi Cria Mundos — projetos de impressão 3D únicos, criativos e personalizados. Transforme suas ideias em objetos reais." />
+  <meta name="theme-color" content="#0d1b2a" />
+  <title>Vivi Cria Mundos | Impressão 3D & Projetos Criativos</title>
+
+  <meta property="og:title" content="Vivi Cria Mundos | Impressão 3D & Projetos Criativos" />
+  <meta property="og:description" content="Projetos de impressão 3D únicos, personalizados e cheios de criatividade. Da ideia ao objeto real." />
+  <meta property="og:type" content="website" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Vivi Cria Mundos",
+      "description": "Projetos de impressão 3D únicos, criativos e personalizados."
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <canvas id="particleCanvas" aria-hidden="true"></canvas>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <!-- HEADER -->
+  <header class="site-header" data-header>
+    <a class="brand" href="#inicio" aria-label="Ir para o início">
+      <div class="brand-logo-wrap">
+        <div class="brand-logo-icon">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="20" r="18" fill="url(#grad1)" />
+            <path d="M13 20 L20 13 L27 20 L20 27 Z" fill="white" opacity="0.9"/>
+            <circle cx="20" cy="20" r="4" fill="url(#grad2)"/>
+            <defs>
+              <linearGradient id="grad1" x1="0" y1="0" x2="40" y2="40">
+                <stop offset="0%" stop-color="#00d4ff"/>
+                <stop offset="100%" stop-color="#a855f7"/>
+              </linearGradient>
+              <linearGradient id="grad2" x1="0" y1="0" x2="40" y2="40">
+                <stop offset="0%" stop-color="#ffd700"/>
+                <stop offset="100%" stop-color="#ff6b35"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <span class="brand-text">
+          <strong>Vivi</strong> <span class="brand-accent">Cria Mundos</span>
+        </span>
+      </div>
+    </a>
+
+    <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav-links" aria-label="Menu principal">
+      <a href="#projetos">Projetos</a>
+      <a href="#como-funciona">Como Funciona</a>
+      <a href="#sobre">Sobre a Vivi</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="#faq">Dúvidas</a>
+      <a href="#contato" class="nav-cta">Pedir Projeto</a>
+    </nav>
+  </header>
+
+  <main id="conteudo">
+
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+      <div class="hero-bg-shapes" aria-hidden="true">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="rainbow-arc"></div>
+        <div class="color-ribbon ribbon-1"></div>
+        <div class="color-ribbon ribbon-2"></div>
+      </div>
+
+      <div class="hero-content">
+        <div class="hero-copy reveal">
+          <span class="eyebrow">
+            <span class="pulse-dot"></span>
+            Impressão 3D criativa & personalizada
+          </span>
+
+          <h1>
+            Transformo suas ideias em
+            <span class="gradient-text">mundos reais.</span>
+          </h1>
+
+          <p class="hero-text">
+            Projetos únicos de impressão 3D com filamentos coloridos, camadas precisas e acabamento criativo:
+            decoração, brindes, miniaturas, presentes e peças funcionais feitas para sair da imaginação.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary magnetic" data-whatsapp="Olá Vivi! Vim pelo site e quero pedir um projeto de impressão 3D." href="#contato">
+              Quero meu projeto ✨
+            </a>
+            <a class="btn btn-secondary magnetic" href="#projetos">
+              Ver projetos
+            </a>
+          </div>
+
+          <div class="hero-badges">
+            <span>🎨 Cores e acabamentos criativos</span>
+            <span>🧵 Impressão em camadas reais</span>
+            <span>💬 Projeto guiado pelo WhatsApp</span>
+          </div>
+
+          <div class="hero-metrics">
+            <div>
+              <strong><span data-count="380">0</span>+</strong>
+              <span>Projetos entregues</span>
+            </div>
+            <div>
+              <strong><span data-count="5">0</span> ★</strong>
+              <span>Avaliação média</span>
+            </div>
+            <div>
+              <strong><span data-count="100">0</span>%</strong>
+              <span>Satisfação garantida</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal delay-1" aria-hidden="true">
+          <div class="vivi-orbit" data-depth="0.35">
+            <span class="orbit-dot orbit-dot--cyan"></span>
+            <span class="orbit-dot orbit-dot--pink"></span>
+            <span class="orbit-dot orbit-dot--yellow"></span>
+          </div>
+
+          <div class="printer-showcase tilt-card" data-depth="0.18">
+            <div class="printer-glow"></div>
+            <div class="printer-rainbow-border"></div>
+
+            <div class="filament-spool">
+              <span class="spool-core"></span>
+              <span class="spool-thread spool-thread-1"></span>
+              <span class="spool-thread spool-thread-2"></span>
+              <span class="spool-thread spool-thread-3"></span>
+            </div>
+
+            <svg class="filament-path" viewBox="0 0 420 180" preserveAspectRatio="none" role="presentation">
+              <path class="filament filament-shadow" d="M 45 52 C 130 0, 190 32, 236 66 S 333 120, 390 52" />
+              <path class="filament filament-main" d="M 45 52 C 130 0, 190 32, 236 66 S 333 120, 390 52" />
+            </svg>
+
+            <div class="printer-body">
+              <svg viewBox="0 0 260 320" fill="none" xmlns="http://www.w3.org/2000/svg" class="printer-svg">
+                <rect x="29" y="239" width="202" height="62" rx="14" fill="url(#printerBase)"/>
+                <rect x="40" y="60" width="20" height="200" rx="6" fill="url(#printerFrame)"/>
+                <rect x="200" y="60" width="20" height="200" rx="6" fill="url(#printerFrame)"/>
+                <rect x="35" y="50" width="190" height="20" rx="8" fill="url(#printerTop)"/>
+                <rect x="48" y="198" width="164" height="13" rx="5" fill="url(#printerPlate)"/>
+
+                <g class="printer-carriage">
+                  <rect x="87" y="96" width="86" height="30" rx="8" fill="url(#printerHead)"/>
+                  <rect x="121" y="122" width="18" height="28" rx="4" fill="#00d4ff"/>
+                  <circle cx="130" cy="114" r="5" fill="#ffffff" opacity="0.55"/>
+                </g>
+
+                <path class="print-beam" d="M130 150 L130 196" stroke="url(#beamGrad)" stroke-width="5" stroke-linecap="round"/>
+
+                <g class="printed-object">
+                  <path d="M92 198 L130 156 L168 198 Z" fill="url(#rainbowObject)" opacity="0.95"/>
+                  <path d="M101 198 L130 167 L159 198 Z" fill="#ffffff" opacity="0.16"/>
+                  <rect x="101" y="191" width="58" height="4" rx="2" fill="#ffffff" opacity="0.35" class="print-line"/>
+                  <rect x="106" y="183" width="48" height="4" rx="2" fill="#ffffff" opacity="0.26" class="print-line"/>
+                  <rect x="112" y="175" width="36" height="4" rx="2" fill="#ffffff" opacity="0.22" class="print-line"/>
+                </g>
+
+                <rect x="166" y="249" width="54" height="36" rx="7" fill="#07091a"/>
+                <rect x="170" y="253" width="46" height="28" rx="5" fill="#00d4ff" opacity="0.16"/>
+                <text x="193" y="269" font-family="monospace" font-size="8" fill="#00d4ff" text-anchor="middle">VIVI</text>
+                <text x="193" y="278" font-family="monospace" font-size="7" fill="#ffd700" text-anchor="middle">PRINT</text>
+                <circle cx="55" cy="268" r="10" fill="url(#btnGrad)"/>
+                <circle cx="82" cy="255" r="4" fill="#00ff88" class="blink-dot"/>
+                <circle cx="97" cy="255" r="4" fill="#ffd700" class="blink-dot-2"/>
+
+                <defs>
+                  <linearGradient id="printerBase" x1="30" y1="240" x2="230" y2="300">
+                    <stop offset="0%" stop-color="#171a4b"/>
+                    <stop offset="100%" stop-color="#090b24"/>
+                  </linearGradient>
+                  <linearGradient id="printerFrame" x1="0" y1="0" x2="20" y2="200" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#37338b"/>
+                    <stop offset="100%" stop-color="#15173b"/>
+                  </linearGradient>
+                  <linearGradient id="printerTop" x1="35" y1="50" x2="225" y2="70">
+                    <stop offset="0%" stop-color="#00d4ff"/>
+                    <stop offset="45%" stop-color="#a855f7"/>
+                    <stop offset="100%" stop-color="#ff4da6"/>
+                  </linearGradient>
+                  <linearGradient id="printerPlate" x1="48" y1="198" x2="212" y2="211">
+                    <stop offset="0%" stop-color="#1f2965"/>
+                    <stop offset="100%" stop-color="#101638"/>
+                  </linearGradient>
+                  <linearGradient id="printerHead" x1="87" y1="96" x2="173" y2="126">
+                    <stop offset="0%" stop-color="#00d4ff"/>
+                    <stop offset="35%" stop-color="#a855f7"/>
+                    <stop offset="70%" stop-color="#ff4da6"/>
+                    <stop offset="100%" stop-color="#ffd700"/>
+                  </linearGradient>
+                  <linearGradient id="rainbowObject" x1="92" y1="156" x2="168" y2="198">
+                    <stop offset="0%" stop-color="#ffd700"/>
+                    <stop offset="35%" stop-color="#ff6b35"/>
+                    <stop offset="70%" stop-color="#ff4da6"/>
+                    <stop offset="100%" stop-color="#a855f7"/>
+                  </linearGradient>
+                  <linearGradient id="beamGrad" x1="130" y1="150" x2="130" y2="196">
+                    <stop offset="0%" stop-color="#00d4ff" stop-opacity="0"/>
+                    <stop offset="45%" stop-color="#00d4ff" stop-opacity="0.9"/>
+                    <stop offset="100%" stop-color="#ffd700" stop-opacity="0"/>
+                  </linearGradient>
+                  <linearGradient id="btnGrad" x1="45" y1="257" x2="65" y2="277">
+                    <stop offset="0%" stop-color="#00d4ff"/>
+                    <stop offset="100%" stop-color="#a855f7"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+
+            <div class="build-plate-shadow"></div>
+            <div class="showcase-badge showcase-badge-1"><span>🎨</span> Filamentos coloridos</div>
+            <div class="showcase-badge showcase-badge-2"><span>🧩</span> Projeto sob medida</div>
+            <div class="showcase-badge showcase-badge-3"><span>✨</span> Ideia virando peça</div>
+          </div>
+
+          <div class="color-palette-cloud" data-depth="0.42">
+            <span style="--chip:#00d4ff"></span>
+            <span style="--chip:#a855f7"></span>
+            <span style="--chip:#ff4da6"></span>
+            <span style="--chip:#ffd700"></span>
+            <span style="--chip:#00ff88"></span>
+          </div>
+
+          <div class="float-item float-1">🏠</div>
+          <div class="float-item float-2">⭐</div>
+          <div class="float-item float-3">🌈</div>
+          <div class="float-item float-4">🧵</div>
+          <div class="float-item float-5">🧸</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section class="how-it-works" id="como-funciona">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Como funciona</span>
+          <h2>Do sonho ao objeto real <span class="emoji-accent">✨</span></h2>
+          <p>Processo simples, rápido e totalmente personalizado para você</p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card reveal" style="--delay: 0ms">
+            <div class="step-number">01</div>
+            <div class="step-icon">💬</div>
+            <h3>Me conta sua ideia</h3>
+            <p>Entre em contato pelo WhatsApp e me conta o que você quer criar. Pode ser uma foto de referência, um desenho, ou só uma descrição.</p>
+          </div>
+
+          <div class="step-card reveal" style="--delay: 100ms">
+            <div class="step-number">02</div>
+            <div class="step-icon">🎨</div>
+            <h3>Criamos juntos o projeto</h3>
+            <p>Desenvolvo o design digital do seu projeto, com ajustes e aprovações até ficar exatamente como você imaginou.</p>
+          </div>
+
+          <div class="step-card reveal" style="--delay: 200ms">
+            <div class="step-number">03</div>
+            <div class="step-icon">🖨️</div>
+            <h3>A impressora entra em ação</h3>
+            <p>Com o projeto aprovado, a impressão 3D começa! Acompanhe em tempo real cada camada sendo construída.</p>
+          </div>
+
+          <div class="step-card reveal" style="--delay: 300ms">
+            <div class="step-number">04</div>
+            <div class="step-icon">📦</div>
+            <h3>Receba seu mundo real</h3>
+            <p>Sua peça é finalizada, embalada com carinho e enviada até você. Pronto para encantar!</p>
+          </div>
+        </div>
+
+        <div class="how-cta reveal">
+          <a class="btn btn-primary magnetic" data-whatsapp="Olá Vivi! Quero entender melhor como funciona o processo de criação." href="#contato">
+            Começar agora →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJETOS / CATEGORIAS -->
+    <section class="projects" id="projetos">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Portfólio</span>
+          <h2>Projetos que criam <span class="gradient-text">mundos</span></h2>
+          <p>Do arquivo 3D ao objeto impresso: peças coloridas, úteis, fofas e cheias de personalidade.</p>
+        </div>
+
+        <div class="filter-bar reveal">
+          <button class="filter-btn is-active" data-filter="all" aria-pressed="true">Todos</button>
+          <button class="filter-btn" data-filter="decoracao" aria-pressed="false">Decoração</button>
+          <button class="filter-btn" data-filter="presente" aria-pressed="false">Presentes</button>
+          <button class="filter-btn" data-filter="miniatura" aria-pressed="false">Miniaturas</button>
+          <button class="filter-btn" data-filter="funcional" aria-pressed="false">Funcionais</button>
+        </div>
+
+        <div class="projects-grid">
+
+          <article class="project-card reveal tilt-card" data-category="decoracao miniatura">
+            <div class="project-thumb project-thumb--house">
+              <div class="project-3d-icon">🏠</div>
+              <div class="project-layers">
+                <div class="layer layer-1"></div>
+                <div class="layer layer-2"></div>
+                <div class="layer layer-3"></div>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-cat">Decoração</span>
+              <h3>Casinhas Decorativas</h3>
+              <p>Miniaturas de casas personalizadas para decorar estantes, nichos e presentear com significado.</p>
+              <a class="project-cta" data-whatsapp="Olá Vivi! Quero uma casinha decorativa em 3D!" href="#contato">
+                Quero uma dessas ↗
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card reveal tilt-card delay-1" data-category="presente">
+            <div class="project-thumb project-thumb--star">
+              <div class="project-3d-icon">⭐</div>
+              <div class="project-layers">
+                <div class="layer layer-1"></div>
+                <div class="layer layer-2"></div>
+                <div class="layer layer-3"></div>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-cat">Presente</span>
+              <h3>Presentes Personalizados</h3>
+              <p>Crie presentes únicos e inesquecíveis com o nome, rosto ou símbolo de quem você ama.</p>
+              <a class="project-cta" data-whatsapp="Olá Vivi! Quero criar um presente personalizado em 3D!" href="#contato">
+                Criar presente ↗
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card reveal tilt-card delay-2" data-category="miniatura">
+            <div class="project-thumb project-thumb--city">
+              <div class="project-3d-icon">🏙️</div>
+              <div class="project-layers">
+                <div class="layer layer-1"></div>
+                <div class="layer layer-2"></div>
+                <div class="layer layer-3"></div>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-cat">Miniatura</span>
+              <h3>Miniaturas Arquitetônicas</h3>
+              <p>Réplicas em miniatura de prédios, casas e monumentos com detalhes impressionantes.</p>
+              <a class="project-cta" data-whatsapp="Olá Vivi! Quero uma miniatura arquitetônica em 3D!" href="#contato">
+                Solicitar miniatura ↗
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card reveal tilt-card" data-category="funcional">
+            <div class="project-thumb project-thumb--tool">
+              <div class="project-3d-icon">🔧</div>
+              <div class="project-layers">
+                <div class="layer layer-1"></div>
+                <div class="layer layer-2"></div>
+                <div class="layer layer-3"></div>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-cat">Funcional</span>
+              <h3>Peças & Acessórios</h3>
+              <p>Suportes, organizadores, tampas e peças de reposição que resolvem problemas reais do dia a dia.</p>
+              <a class="project-cta" data-whatsapp="Olá Vivi! Preciso de uma peça funcional em 3D!" href="#contato">
+                Pedir peça ↗
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card reveal tilt-card delay-1" data-category="decoracao presente">
+            <div class="project-thumb project-thumb--rainbow">
+              <div class="project-3d-icon">🌈</div>
+              <div class="project-layers">
+                <div class="layer layer-1"></div>
+                <div class="layer layer-2"></div>
+                <div class="layer layer-3"></div>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-cat">Decoração / Presente</span>
+              <h3>Itens Temáticos</h3>
+              <p>Peças temáticas para festas, datas comemorativas e coleções especiais que encantam crianças e adultos.</p>
+              <a class="project-cta" data-whatsapp="Olá Vivi! Quero um item temático em 3D!" href="#contato">
+                Criar temático ↗
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card reveal tilt-card delay-2" data-category="funcional miniatura">
+            <div class="project-thumb project-thumb--custom">
+              <div class="project-3d-icon">🎭</div>
+              <div class="project-layers">
+                <div class="layer layer-1"></div>
+                <div class="layer layer-2"></div>
+                <div class="layer layer-3"></div>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-cat">Personalizado</span>
+              <h3>Projeto Sob Medida</h3>
+              <p>Tem uma ideia diferente? Me conta! Crio qualquer projeto do zero, do jeito que você imaginou.</p>
+              <a class="project-cta" data-whatsapp="Olá Vivi! Tenho uma ideia de projeto personalizado em 3D!" href="#contato">
+                Criar do zero ↗
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- DIFERENCIAIS -->
+    <section class="diferenciais">
+      <div class="container">
+        <div class="diferenciais-grid">
+          <div class="diferencial-copy reveal">
+            <span class="section-tag">Por que a Vivi?</span>
+            <h2>Criatividade que <span class="gradient-text">encanta</span></h2>
+            <p>Não sou só uma impressora 3D. Sou a Viviane, criadora de mundos que acredita que cada projeto conta uma história.</p>
+            <ul class="diferencial-list">
+              <li>
+                <span class="d-icon">🎨</span>
+                <div>
+                  <strong>Design exclusivo</strong>
+                  <span>Cada projeto é criado do zero, pensado especialmente para você</span>
+                </div>
+              </li>
+              <li>
+                <span class="d-icon">⚡</span>
+                <div>
+                  <strong>Produção ágil</strong>
+                  <span>Processo otimizado para entregar sua peça no menor tempo possível</span>
+                </div>
+              </li>
+              <li>
+                <span class="d-icon">💎</span>
+                <div>
+                  <strong>Qualidade premium</strong>
+                  <span>Materiais selecionados e acabamento impecável em todas as peças</span>
+                </div>
+              </li>
+              <li>
+                <span class="d-icon">❤️</span>
+                <div>
+                  <strong>Feito com amor</strong>
+                  <span>Cada detalhe é cuidado com carinho do início ao fim</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="diferencial-visual reveal delay-1">
+            <div class="stats-card">
+              <div class="stat-item">
+                <div class="stat-circle stat-circle--teal">
+                  <span data-count="380">0</span><span>+</span>
+                </div>
+                <p>Projetos realizados</p>
+              </div>
+              <div class="stat-item">
+                <div class="stat-circle stat-circle--purple">
+                  <span data-count="97">0</span><span>%</span>
+                </div>
+                <p>Clientes satisfeitos</p>
+              </div>
+              <div class="stat-item">
+                <div class="stat-circle stat-circle--orange">
+                  <span data-count="3">0</span><span>+</span>
+                </div>
+                <p>Anos criando mundos</p>
+              </div>
+              <div class="stat-item">
+                <div class="stat-circle stat-circle--pink">
+                  <span data-count="48">0</span><span>h</span>
+                </div>
+                <p>Prazo médio de entrega</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section class="sobre" id="sobre">
+      <div class="container">
+        <div class="sobre-grid">
+          <div class="sobre-visual reveal">
+            <div class="sobre-card tilt-card">
+              <div class="sobre-avatar">
+                <div class="avatar-ring avatar-ring-1"></div>
+                <div class="avatar-ring avatar-ring-2"></div>
+                <div class="avatar-placeholder">
+                  <span>👩‍💻</span>
+                  <p>Viviane</p>
+                </div>
+              </div>
+              <div class="sobre-badge sobre-badge-1">🖨️ Impressora 3D própria</div>
+              <div class="sobre-badge sobre-badge-2">🌟 Criadora de conteúdo</div>
+            </div>
+          </div>
+
+          <div class="sobre-copy reveal delay-1">
+            <span class="section-tag">Sobre mim</span>
+            <h2>Olá! Eu sou a <span class="gradient-text">Viviane</span> 👋</h2>
+            <p>Sou apaixonada por transformar ideias em objetos reais. Com minha impressora 3D, crio peças únicas que emocionam, decoram e resolvem problemas reais do dia a dia.</p>
+            <p>Trabalho com criatividade e dedicação em cada projeto — desde a concepção do design até o acabamento final. Para mim, cada peça impressa é um novo mundo que ganha vida.</p>
+            <p>Aqui no Vivi Cria Mundos, você encontra projetos personalizados, entrega rápida e o carinho de quem ama o que faz. Vamos criar juntos?</p>
+            <a class="btn btn-primary magnetic" data-whatsapp="Olá Vivi! Quero saber mais sobre seus projetos de impressão 3D." href="#contato">
+              Falar com a Vivi 💬
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUIZ -->
+    <section class="quiz-section" id="quiz">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Descubra seu projeto</span>
+          <h2>Qual projeto <span class="gradient-text">combina</span> com você?</h2>
+          <p>Responda 4 perguntas rápidas e descubra o projeto perfeito</p>
+        </div>
+
+        <div class="quiz-card reveal">
+          <div class="quiz-progress">
+            <div class="quiz-step-label" data-quiz-step-label>Etapa 1 de 4</div>
+            <div class="quiz-bar-track">
+              <div class="quiz-bar" data-quiz-bar style="width: 25%"></div>
+            </div>
+          </div>
+
+          <div data-quiz-question>
+            <p class="quiz-overline">Ocasião</p>
+            <h3>Para que você quer o projeto?</h3>
+          </div>
+
+          <div class="quiz-options" data-quiz-options></div>
+
+          <div class="quiz-actions" data-quiz-actions>
+            <button class="btn btn-outline quiz-nav-btn" data-quiz-back type="button" disabled>← Voltar</button>
+            <button class="btn btn-primary quiz-nav-btn" data-quiz-next type="button" disabled>Continuar →</button>
+          </div>
+
+          <div class="quiz-result" data-quiz-result hidden>
+            <div class="quiz-result-icon">🎉</div>
+            <h3>Perfeito! Encontrei o projeto ideal para você</h3>
+            <div class="quiz-summary" data-quiz-summary></div>
+            <a class="btn btn-primary" data-quiz-whatsapp href="#contato">
+              Pedir meu projeto pelo WhatsApp ↗
+            </a>
+            <button class="btn btn-outline" data-quiz-restart type="button">Refazer quiz</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section class="depoimentos" id="depoimentos">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Depoimentos</span>
+          <h2>Clientes que <span class="gradient-text">amaram</span> 💛</h2>
+          <p>Histórias reais de pessoas que receberam seus mundos</p>
+        </div>
+
+        <div class="depoimentos-grid">
+          <div class="depoimento-card reveal">
+            <div class="dep-stars">★★★★★</div>
+            <p>"A Vivi fez uma casinha em miniatura da minha avó com todos os detalhes! Chorei quando abri. Melhor presente que já dei na vida. Amei demais!"</p>
+            <div class="dep-author">
+              <div class="dep-avatar">MR</div>
+              <div>
+                <strong>Maria R.</strong>
+                <span>Projeto: Casinha personalizada</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="depoimento-card reveal delay-1">
+            <div class="dep-stars">★★★★★</div>
+            <p>"Pedi um organizador de mesa personalizado e ficou incrível! A qualidade é excelente, chegou antes do prazo e ainda veio embalado lindamente. Super recomendo!"</p>
+            <div class="dep-author">
+              <div class="dep-avatar">CS</div>
+              <div>
+                <strong>Carlos S.</strong>
+                <span>Projeto: Organizador funcional</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="depoimento-card reveal delay-2">
+            <div class="dep-stars">★★★★★</div>
+            <p>"Fiz uma surpresa para minha filha com uma miniatura da casinha dela do sonho. Ela ficou sem palavras! A Vivi é muito atenciosa e profissional. Voltarei sempre!"</p>
+            <div class="dep-author">
+              <div class="dep-avatar">AL</div>
+              <div>
+                <strong>Ana L.</strong>
+                <span>Projeto: Presente temático</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dep-cta reveal">
+          <p>Quer ver mais projetos e avaliações?</p>
+          <a class="btn btn-outline" href="https://instagram.com/" target="_blank" rel="noopener noreferrer">
+            Ver no Instagram ↗
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Dúvidas frequentes</span>
+          <h2>Suas perguntas <span class="gradient-text">respondidas</span> 🙋</h2>
+        </div>
+
+        <div class="accordion reveal">
+
+          <div class="accordion-item">
+            <button class="accordion-button" type="button" aria-expanded="false">
+              Quais materiais são usados na impressão 3D?
+              <span class="acc-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-content">
+              <p>Trabalho principalmente com PLA, PETG e ABS — materiais de alta qualidade, duráveis e disponíveis em diversas cores. Cada projeto é analisado para escolher o material mais adequado para a sua finalidade.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-button" type="button" aria-expanded="false">
+              Quanto tempo leva para ficar pronto?
+              <span class="acc-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-content">
+              <p>O prazo depende da complexidade do projeto. Projetos simples ficam prontos em 24-48h. Projetos mais elaborados podem levar de 3 a 7 dias úteis. Sempre informo o prazo exato antes de confirmar o pedido.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-button" type="button" aria-expanded="false">
+              Vocês fazem projetos totalmente personalizados?
+              <span class="acc-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-content">
+              <p>Sim! Essa é minha especialidade. Você pode trazer uma foto, um desenho, uma referência ou só uma ideia — e eu desenvolvo o projeto completo para você, com aprovação de cada etapa antes de imprimir.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-button" type="button" aria-expanded="false">
+              Vocês enviam para todo o Brasil?
+              <span class="acc-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-content">
+              <p>Sim! Enviamos para todo o território nacional pelos Correios. Também é possível combinar retirada local. O frete é calculado na hora do pedido.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-button" type="button" aria-expanded="false">
+              Qual é a forma de pagamento?
+              <span class="acc-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-content">
+              <p>Aceito PIX, transferência bancária e cartão de crédito. Para projetos personalizados, solicito 50% de entrada ao confirmar o pedido e o restante antes do envio.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-button" type="button" aria-expanded="false">
+              Posso acompanhar meu projeto sendo impresso?
+              <span class="acc-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-content">
+              <p>Claro! Gosto de compartilhar vídeos e fotos do processo de impressão pelo WhatsApp. Ver sua ideia ganhando vida camada por camada é incrível!</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO / CTA FINAL -->
+    <section class="contato" id="contato">
+      <div class="container">
+        <div class="contato-card reveal">
+          <div class="contato-bg-shapes" aria-hidden="true">
+            <div class="c-shape c-shape-1"></div>
+            <div class="c-shape c-shape-2"></div>
+          </div>
+
+          <div class="contato-content">
+            <span class="section-tag">Vamos criar juntos?</span>
+            <h2>Pronta para dar vida ao seu <span class="gradient-text">projeto</span>?</h2>
+            <p>Me chame no WhatsApp e vamos transformar a sua ideia em realidade. É só contar o que você imaginou!</p>
+
+            <div class="contato-actions">
+              <a class="btn btn-whatsapp magnetic" data-whatsapp="Olá Vivi! Vim pelo site e quero criar um projeto de impressão 3D." href="#contato">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                Falar no WhatsApp
+              </a>
+              <a class="btn btn-outline-light" href="https://instagram.com/" target="_blank" rel="noopener noreferrer">
+                Ver projetos no Instagram ↗
+              </a>
+            </div>
+
+            <div class="contato-info">
+              <div class="info-item">
+                <span class="info-icon">⚡</span>
+                <span>Resposta em até 2h</span>
+              </div>
+              <div class="info-item">
+                <span class="info-icon">🎨</span>
+                <span>Orçamento gratuito</span>
+              </div>
+              <div class="info-item">
+                <span class="info-icon">🌎</span>
+                <span>Envio para todo o Brasil</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="#inicio">
+            <strong>Vivi</strong> <span class="brand-accent">Cria Mundos</span>
+          </a>
+          <p>Transformando ideias em mundos reais, uma camada de cada vez.</p>
+        </div>
+
+        <div class="footer-links">
+          <strong>Navegação</strong>
+          <a href="#projetos">Projetos</a>
+          <a href="#como-funciona">Como funciona</a>
+          <a href="#sobre">Sobre a Vivi</a>
+          <a href="#depoimentos">Depoimentos</a>
+          <a href="#faq">Dúvidas</a>
+        </div>
+
+        <div class="footer-links">
+          <strong>Contato</strong>
+          <a data-whatsapp="Olá Vivi! Vim pelo site." href="#contato">WhatsApp</a>
+          <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> Vivi Cria Mundos. Todos os direitos reservados.</p>
+          <div class="developer-credit">
+    <span>Desenvolvido por</span>
+
+    <a
+      href="https://wa.me/5518981569920"
+      target="_blank"
+      rel="noopener"
+    >
+      Guilherme Nascimento
+    </a>
+  </div>
+        <p>Feito com ❤️ e impressão 3D</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
