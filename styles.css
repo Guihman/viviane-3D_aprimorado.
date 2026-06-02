@@ -1,8 +1,3 @@
-/* ============================================================
-   VIVI CRIA MUNDOS — Stylesheet completo
-   ============================================================ */
-
-/* ----- CSS VARIABLES ----- */
 :root {
   --bg-deep:       #07091a;
   --bg-mid:        #0d1230;
@@ -273,10 +268,8 @@ ul { list-style: none; }
   border-radius: 175px 175px 0 0;
   border: 12px solid transparent;
   border-bottom: none;
-  background: linear-gradient(90deg, #ff4da6, #ff6b35, #ffd700, #00ff88, #00d4ff, #a855f7) border-box;
-  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
+  border-image: linear-gradient(90deg, #ff4da6, #ff6b35, #ffd700, #00ff88, #00d4ff, #a855f7) 1;
+  background: transparent;
   opacity: 0.3;
   animation: rainbow-pulse 4s ease-in-out infinite;
 }
@@ -1109,15 +1102,16 @@ body::before {
   filter: blur(20px);
   opacity: 0.22;
   background: linear-gradient(90deg, var(--vivi-cyan), var(--vivi-violet), var(--vivi-pink), var(--vivi-yellow), var(--vivi-mint));
-  transform: rotate(-12deg);
+  --ribbon-rotate: -12deg;
+  transform: translate(0, 0) rotate(var(--ribbon-rotate));
   animation: vivi-ribbon-float 12s ease-in-out infinite;
 }
 .ribbon-1 { top: 18%; left: -22%; }
-.ribbon-2 { right: -22%; bottom: 10%; animation-delay: -5s; transform: rotate(14deg); }
+.ribbon-2 { right: -22%; bottom: 10%; animation-delay: -5s; --ribbon-rotate: 14deg; }
 
 @keyframes vivi-ribbon-float {
-  0%, 100% { translate: 0 0; opacity: 0.18; }
-  50% { translate: 46px -20px; opacity: 0.34; }
+  0%, 100% { transform: translate(0, 0) rotate(var(--ribbon-rotate)); opacity: 0.18; }
+  50% { transform: translate(46px, -20px) rotate(var(--ribbon-rotate)); opacity: 0.34; }
 }
 
 .rainbow-arc {
@@ -1235,24 +1229,20 @@ body::before {
   position: absolute;
   inset: -2px;
   border-radius: inherit;
-  padding: 2px;
-  background: conic-gradient(from var(--spin-angle, 0deg), var(--vivi-cyan), var(--vivi-violet), var(--vivi-pink), var(--vivi-yellow), var(--vivi-mint), var(--vivi-cyan));
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0.68;
+  border: 2px solid rgba(0, 212, 255, 0.55);
+  background: transparent;
+  box-shadow:
+    0 0 18px rgba(0, 212, 255, 0.25),
+    0 0 28px rgba(168, 85, 247, 0.18),
+    0 0 38px rgba(255, 77, 166, 0.14);
+  opacity: 0.9;
   pointer-events: none;
   animation: vivi-border-spin 7s linear infinite;
-}
-
-@property --spin-angle {
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
+  transform-origin: center;
 }
 
 @keyframes vivi-border-spin {
-  to { --spin-angle: 360deg; }
+  to { transform: rotate(360deg); }
 }
 
 .printer-glow {
