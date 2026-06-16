@@ -364,7 +364,7 @@ filterBtns.forEach((btn) => {
       options: [
         "Presente para alguém especial",
         "Decorar minha casa ou escritório",
-        "Resolver um problema prático do dia a dia",
+        "Criar brinquedos ou lembranças especiais",
         "Criar algo só para mim",
       ],
     },
@@ -374,7 +374,8 @@ filterBtns.forEach((btn) => {
       options: [
         "Miniatura / réplica de algo real",
         "Peça decorativa e artística",
-        "Acessório ou objeto funcional",
+        "Brinquedo personalizado",
+        "Item religioso ou lembrança de fé",
         "Não sei ainda, quero sugestões",
       ],
     },

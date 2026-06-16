@@ -532,7 +532,8 @@ ul { list-style: none; }
 .project-thumb--house { background: linear-gradient(135deg, #1a0a2e, #2d1b69); }
 .project-thumb--star  { background: linear-gradient(135deg, #0a1e3d, #1a3a6e); }
 .project-thumb--city  { background: linear-gradient(135deg, #0d2818, #1a4a30); }
-.project-thumb--tool  { background: linear-gradient(135deg, #2e1a0a, #5a3310); }
+.project-thumb--toy   { background: linear-gradient(135deg, #2e0a24, #6b1b7a); }
+.project-thumb--religious { background: linear-gradient(135deg, #1a1435, #5a3d10); }
 .project-thumb--rainbow { background: linear-gradient(135deg, #1a0d2e, #3d1a5e); }
 .project-thumb--custom { background: linear-gradient(135deg, #0a1a2e, #1a3060); }
 
@@ -1562,7 +1563,8 @@ body::before {
 .project-thumb--house { background: linear-gradient(135deg, #1a0a2e, #4b1a78, #00d4ff) !important; }
 .project-thumb--star { background: linear-gradient(135deg, #071c40, #a855f7, #ffd700) !important; }
 .project-thumb--city { background: linear-gradient(135deg, #0a2818, #167d61, #00d4ff) !important; }
-.project-thumb--tool { background: linear-gradient(135deg, #2e1a0a, #ff6b35, #ffd700) !important; }
+.project-thumb--toy { background: linear-gradient(135deg, #2e0a24, #ff4da6, #ffd700) !important; }
+.project-thumb--religious { background: linear-gradient(135deg, #131a3a, #6d4bc2, #ffd700) !important; }
 .project-thumb--rainbow { background: linear-gradient(135deg, #1a0d2e, #a855f7, #ff4da6, #ffd700) !important; }
 .project-thumb--custom { background: linear-gradient(135deg, #08172e, #00d4ff, #a855f7) !important; }
 
